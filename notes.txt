@@ -1,0 +1,2 @@
+At first Expo Go wouldnt talk to the dev server on my laptop unless I turned off Windows firewall.
+However I googled it and made firewall rules to let inbound traffic for exe nodejs and for ports 19000, 19001 and 19002
