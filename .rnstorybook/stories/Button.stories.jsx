@@ -5,7 +5,7 @@ import { fn } from 'storybook/test';
 import { Button } from './Button';
 
 export default {
-  title: 'Example/Button',
+  title: 'Primitives/Button',
   component: Button,
   decorators: [
     (Story) => (
