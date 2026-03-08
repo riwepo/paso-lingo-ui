@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { fn } from 'storybook/test';
 
-import { debug } from './styles/debug_styles'
 import { EpisodeListItem } from './EpisodeListItem';
 
 export default {
@@ -27,8 +26,7 @@ export const TedEspanolFree = {
     free: true,
     source: 'TED en Espanol',
     title: 'Periodismo que desafia al poder | Jorge Ramos',
-    imageSource: require('./assets/ted_en_espanol.png'),
-    style: debug
+    imageSource: require('./assets/ted_en_espanol.png')
   },
 };
 
@@ -38,8 +36,7 @@ export const YouTubePaid = {
     free: false,
     source: 'TED en Espanol',
     title: 'Music, poesia e identidad | Jorge Drexler',
-    imageSource: require('./assets/you_tube.png'),
-    style: debug
+    imageSource: require('./assets/you_tube.png')
   },
 };
 

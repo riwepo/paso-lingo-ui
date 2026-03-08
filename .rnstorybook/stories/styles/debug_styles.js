@@ -1,5 +1,7 @@
+import { StyleSheet } from 'react-native';
+
 export const debug = {
-  borderWidth: 1,
-  borderColor: 'black',
+  borderWidth: StyleSheet.hairlineWidth,
+  borderColor: 'red',
 };
 

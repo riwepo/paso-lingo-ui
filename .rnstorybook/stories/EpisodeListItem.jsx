@@ -2,39 +2,43 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
+import { debug } from './styles/debug_styles'
+
 export const EpisodeListItem = ({
   date,
   source,
   title,
   free = false,
   duration,
-  style,
   imageSource,
+  style,
 }) => {
   return (
-    <View style={[styles.container, style]}>
-      <View style={styles.row}>
+    <View style={[styles.container, style, debug]}>
+      <View style={[styles.row, debug]}>
         {imageSource && (
-          <Image
-            source={imageSource}
-            style={styles.thumbnail}
-            resizeMode="contain"
-          />
+          <View style={debug}>
+            <Image
+              source={imageSource}
+              style={styles.thumbnail}
+              resizeMode="contain"
+            />
+          </View>
         )}
 
-        <View style={styles.content}>
-          {/* HEADER ROW — now only Source */}
-          <View style={styles.headerRow}>
+        <View style={[styles.content, debug]}>
+          <View style={[styles.headerRow, debug]}>
             <Text style={styles.source}>
               <Text style={styles.sourceLabel}>Source: </Text>
               {source}
             </Text>
           </View>
 
-          <Text style={styles.title}>{title}</Text>
+          <View style={debug}>
+            <Text style={styles.title}>{title}</Text>
+          </View>
 
-          {/* FOOTER ROW — Date, Duration, FREE */}
-          <View style={styles.footerRow}>
+          <View style={[styles.footerRow, debug]}>
             <Text style={styles.date}>Date: {date}</Text>
             <Text style={styles.duration}>Duration: {duration}</Text>
             {free && <Text style={styles.freeBadge}>FREE</Text>}
