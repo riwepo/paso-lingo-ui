@@ -2,10 +2,11 @@ import React from 'react';
 import { View } from 'react-native';
 import { fn } from 'storybook/test';
 
+import { debug } from './styles/debug_styles'
 import { EpisodeListItem } from './EpisodeListItem';
 
 export default {
-  title: 'Example/EpisodeListItem',
+  title: 'Lists/EpisodeListItem',
   component: EpisodeListItem,
   decorators: [
     (Story) => (
@@ -20,23 +21,25 @@ export default {
   args: { onPress: fn() },
 };
 
-export const Free = {
+export const TedEspanolFree = {
   args: {
     date: '06/03/2025',
     free: true,
     source: 'TED en Espanol',
     title: 'Periodismo que desafia al poder | Jorge Ramos',
-    imageSource={require('./assets/ted_en_espanol.png')}
+    imageSource: require('./assets/ted_en_espanol.png'),
+    style: debug
   },
 };
 
-export const Paid = {
+export const YouTubePaid = {
   args: {
     date: '07/03/2025',
     free: false,
     source: 'TED en Espanol',
     title: 'Music, poesia e identidad | Jorge Drexler',
-    imageSource={require('./assets/ted_en_espanol.png')}
+    imageSource: require('./assets/you_tube.png'),
+    style: debug
   },
 };
 

@@ -9,8 +9,7 @@ export const EpisodeListItem = ({
   free = false,
   duration,
   style,
-  imageSource,   // <-- NEW
-  imageStyle,    // <-- optional override
+  imageSource,
 }) => {
   return (
     <View style={[styles.container, style]}>
@@ -18,22 +17,27 @@ export const EpisodeListItem = ({
         {imageSource && (
           <Image
             source={imageSource}
-            style={[styles.thumbnail, imageStyle]}
-            resizeMode="cover"
+            style={styles.thumbnail}
+            resizeMode="contain"
           />
         )}
 
         <View style={styles.content}>
+          {/* HEADER ROW — now only Source */}
           <View style={styles.headerRow}>
-            <Text style={styles.date}>{date}</Text>
-            <Text style={styles.source}>{source}</Text>
+            <Text style={styles.source}>
+              <Text style={styles.sourceLabel}>Source: </Text>
+              {source}
+            </Text>
           </View>
 
           <Text style={styles.title}>{title}</Text>
 
+          {/* FOOTER ROW — Date, Duration, FREE */}
           <View style={styles.footerRow}>
+            <Text style={styles.date}>Date: {date}</Text>
+            <Text style={styles.duration}>Duration: {duration}</Text>
             {free && <Text style={styles.freeBadge}>FREE</Text>}
-            <Text style={styles.duration}>{duration}</Text>
           </View>
         </View>
       </View>
@@ -43,60 +47,67 @@ export const EpisodeListItem = ({
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderColor: '#ddd',
-    backgroundColor: 'white',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: '#fff',
   },
+
   row: {
     flexDirection: 'row',
-    gap: 12,
+    alignItems: 'flex-start',
   },
+
   thumbnail: {
-    width: 60,
-    height: 60,
-    borderRadius: 4,
-    backgroundColor: '#eee',
+    width: 40,
+    height: 40,
+    borderRadius: 6,
+    marginRight: 12,
   },
+
   content: {
     flex: 1,
   },
+
   headerRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 4,
+    marginBottom: 12, // extra space before title
   },
+
+  source: {
+    fontSize: 12,
+    color: '#666',
+  },
+
+  sourceLabel: {
+    fontWeight: '600',
+    color: '#444',
+  },
+
+  title: {
+    fontSize: 15,
+    fontWeight: '600',
+    marginBottom: 12,
+    color: '#222',
+  },
+
+  footerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
   date: {
     fontSize: 12,
     color: '#666',
   },
-  source: {
-    fontSize: 12,
-    color: '#666',
-    fontStyle: 'italic',
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#222',
-  },
-  footerRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  freeBadge: {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 4,
-    fontWeight: 'bold',
-    fontSize: 12,
-  },
+
   duration: {
     fontSize: 12,
     color: '#666',
+  },
+
+  freeBadge: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#0a7',
   },
 });
