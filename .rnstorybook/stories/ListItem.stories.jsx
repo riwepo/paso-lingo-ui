@@ -2,11 +2,11 @@ import React from 'react';
 import { View } from 'react-native';
 import { fn } from 'storybook/test';
 
-import { EpisodeListItem } from './EpisodeListItem';
+import { ListItem } from './ListItem';
 
 export default {
-  title: 'Lists/EpisodeListItem',
-  component: EpisodeListItem,
+  title: 'Lists/ListItem',
+  component: ListItem,
   decorators: [
     (Story) => (
       <View style={{ flex: 1, alignItems: 'flex-start' }}>
@@ -22,21 +22,27 @@ export default {
 
 export const TedEspanolFree = {
   args: {
-    date: '06/03/2025',
-    free: true,
-    source: 'TED en Espanol',
+    imageSource: 'ted_en_espanol.png',
+    imageComment: 'TED en Espanol',
     title: 'Periodismo que desafia al poder | Jorge Ramos',
-    imageSource: require('./assets/ted_en_espanol.png')
+    miscInfoLabel1: 'Date Added',
+    miscInfoValue1: '12/03/26',
+    miscInfoLabel2: 'Duration',
+    miscInfoValue2: '15 mins 35 secs',
+    banner:  ['FREE', 'white', 'green'],
   },
 };
 
-export const YouTubePaid = {
+export const YouTubeLocked = {
   args: {
-    date: '07/03/2025',
-    free: false,
-    source: 'TED en Espanol',
-    title: 'Music, poesia e identidad | Jorge Drexler',
-    imageSource: require('./assets/you_tube.png')
+        imageSource: 'you_tube.png',
+        imageComment: 'YouTube',
+        title: 'Music, poesia e identidad | Jorge Drexler',
+        miscInfoLabel1: 'Date Added',
+        miscInfoValue1: '07/03/2025',
+        miscInfoLabel2: 'Duration',
+        miscInfoValue2: '14 mins 00 secs',
+        banner:  ['LOCKED', 'red','black'],
   },
 };
 
